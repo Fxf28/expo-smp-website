@@ -55,7 +55,6 @@ Anggota Klub Ekstrakurikuler Coding SMP IT Nur Hidayah
 **SMP IT Nur Hidayah**  
 Jl. Kahuripan Utara Raya, Sumber, Kec. Banjarsari  
 Kota Surakarta, Jawa Tengah 57138  
-📧 klubcoding@gmail.com | 📱 +62 812-3456-7890  
 🌐 [smpitnurhidayahsolo.sch.id](https://smpitnurhidayahsolo.sch.id)
 
 © 2025 Klub Coding SMP IT Nur Hidayah
