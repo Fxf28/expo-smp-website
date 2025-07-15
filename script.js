@@ -69,10 +69,16 @@ setInterval(() => {
 }, 5000);
 
 // Penanganan submit formulir
-const registrationForm = document.getElementById("registrationForm");
+const submitBtn = document.getElementById("submitBtn");
+const loadingText = document.getElementById("formLoading");
 
 registrationForm.addEventListener("submit", function (e) {
   e.preventDefault();
+
+  // Tampilkan loading & disable tombol
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Mengirim...";
+  loadingText.style.display = "block";
 
   const formData = {
     name: document.getElementById("name").value,
@@ -81,16 +87,31 @@ registrationForm.addEventListener("submit", function (e) {
     phone: document.getElementById("phone").value,
     program: document.getElementById("program").value,
     experience: document.getElementById("experience").value,
+    timestamp: new Date().toISOString(),
   };
 
-  // Dalam aplikasi nyata, data ini akan dikirim ke server
-  console.log("Formulir dikirim:", formData);
-
-  // Tampilkan pesan sukses
-  alert("Terima kasih sudah mendaftar! Kami akan menghubungi Anda segera dengan detail lebih lanjut.");
-
-  // Reset formulir
-  registrationForm.reset();
+  fetch("https://script.google.com/macros/s/AKfycbzz56GBxvbf-OVZJMqD7efEF4sYJkNpXayXtBiat4ASZC0Qv7yPx-sV8LsOrQvl5jMAWQ/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  })
+    .then(() => {
+      alert("Pendaftaran berhasil! Data kamu sudah tercatat.");
+      registrationForm.reset();
+    })
+    .catch((error) => {
+      console.error("Gagal mengirim data:", error);
+      alert("Maaf, terjadi kesalahan saat mengirim data.");
+    })
+    .finally(() => {
+      // Sembunyikan loading & aktifkan tombol kembali
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Daftar Sekarang";
+      loadingText.style.display = "none";
+    });
 });
 
 // Animasi saat elemen muncul di viewport

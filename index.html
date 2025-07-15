@@ -191,11 +191,7 @@
               </div>
               <div class="form-group">
                 <label for="grade">Kelas</label>
-                <select id="grade" name="grade" required>
-                  <option value="">Pilih kelas</option>
-                  <option value="7">Kelas 7</option>
-                  <option value="8">Kelas 8</option>
-                </select>
+                <input type="text" id="grade" name="grade" required placeholder="Contoh: 7A atau 8B" />
               </div>
               <div class="form-group">
                 <label for="email">Email Orang Tua</label>
@@ -206,15 +202,6 @@
                 <input type="tel" id="phone" name="phone" required placeholder="08xxxxxxxxxx" />
               </div>
               <div class="form-group">
-                <label for="program">Program yang Diminati</label>
-                <select id="program" name="program" required>
-                  <option value="">Pilih program</option>
-                  <option value="web">Pengembangan Web</option>
-                  <option value="python">Pemrograman Python</option>
-                  <option value="game">Pengembangan Game</option>
-                </select>
-              </div>
-              <div class="form-group">
                 <label for="experience">Pengalaman Coding Sebelumnya</label>
                 <select id="experience" name="experience" required>
                   <option value="">Pilih tingkat pengalaman</option>
@@ -223,7 +210,8 @@
                   <option value="intermediate">Menengah</option>
                 </select>
               </div>
-              <button type="submit" class="btn">Daftar Sekarang</button>
+              <button type="submit" class="btn" id="submitBtn">Daftar Sekarang</button>
+              <div class="submit-loader" id="formLoading">Mengirim data...</div>
             </form>
           </div>
         </div>
